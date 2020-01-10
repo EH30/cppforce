@@ -1,0 +1,2 @@
+# cppforce
+Simple hash cracker
