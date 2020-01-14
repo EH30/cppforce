@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include "osname.h"
 #include "hashes/md5.h"
 #include "hashes/sha1.h"
 #include "hashes/sha256.h"
@@ -31,9 +32,24 @@ const char letters[] =
     '5', '6', '7', '8', '9', '0', ':', 
     '|', ',', '=', '-', '_', '!', '@', 
     '#', '$', '%', '^', '&', '*', '(', 
-    ')' ,'~', '`', 92, 39
+    ')' ,'~', '`', 92, 39, 32
 };
 
+
+void console_clear()
+{
+    if (os == 0 | os == 2)
+    {
+        system("clear");
+    }else if (os == 1)
+    {
+        system("cls");
+    }else
+    {
+        return;
+    }
+    
+}
 
 string upperconverter(string strs)
 {
@@ -95,6 +111,7 @@ void cracker()
 
 int main(int argc, char *argv[])
 {
+    console_clear();
     cracker();
     return 0;
 }
