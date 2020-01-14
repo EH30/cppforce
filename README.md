@@ -7,3 +7,6 @@ I'm not responsible for your actions
 
 Simple hash cracker
 The Hash Functions were created by someone else
+
+
+<img src="https://github.com/EH30/cppforce/blob/master/cppforce_example.JPG" >
