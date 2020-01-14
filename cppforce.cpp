@@ -8,13 +8,14 @@
 */
 
 #include <iostream>
+#include <algorithm>
 #include "hashes/md5.h"
 #include "hashes/sha1.h"
 #include "hashes/sha256.h"
 #include "hashes/sha384.h"
 #include "hashes/sha512.h"
-
 using namespace std;
+
 
 const char letters[] = 
 {
@@ -33,30 +34,39 @@ const char letters[] =
     ')' ,'~', '`', 92, 39
 };
 
+
+string upperconverter(string strs)
+{
+    transform(strs.begin(), strs.end(), strs.begin(), ::toupper);
+
+    return strs;
+}
+
 void bruteforce(unsigned int lengths, string combos, string hashed)
 {
     if(combos.length() == lengths)
     {
-        cout << "Trying: " << combos << endl;
-        if(md5(combos) == hashed)
+        printf("\r[+]Trying: %s", combos.c_str());
+        //cout << "Trying: " << combos << endl;
+        if(md5(combos) == hashed | upperconverter(md5(combos)) == hashed)
         {
-            cout << "Cracked: " << combos << std::endl;
+            printf("\r[+]Cracked: %s", combos.c_str());
             exit(0);
-        }else if(sha1(combos) == hashed)
+        }else if(sha1(combos) == hashed | upperconverter(sha1(combos)) == hashed)
         {
-            cout << "Cracked: " << combos << std::endl;
+            printf("\r[+]Cracked: %s", combos.c_str());
             exit(0);
-        }else if(sha256(combos) == hashed)
+        }else if(sha256(combos) == hashed | upperconverter(sha256(combos)) == hashed)
         {
-            cout << "Cracked: " << combos << std::endl;
+            printf("\r[+]Cracked: %s", combos.c_str());
             exit(0);
-        }else if(sha384(combos) == hashed)
+        }else if(sha384(combos) == hashed | upperconverter(sha384(combos)) == hashed)
         {
-            cout << "Cracked: " << combos << std::endl;
+            printf("\r[+]Cracked: %s", combos.c_str());
             exit(0);
-        }else if(sha512(combos) == hashed)
+        }else if(sha512(combos) == hashed | upperconverter(sha512(combos)) == hashed)
         {
-            cout << "Cracked: " << combos << std::endl;
+            printf("\r[+]Cracked: %s", combos.c_str());
             exit(0);
         }
         return;
